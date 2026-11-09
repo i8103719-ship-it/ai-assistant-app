@@ -116,15 +116,6 @@
 
   async function submitMessage(text) {
     if (busy || !text.trim()) return;
-
-    // --- ПРОВЕРКА ДАННЫХ TELEGRAM ---
-    console.log("Данные от Telegram:", tg?.initData);
-    if (!tg?.initData) {
-        addMessage("assistant", "Ошибка: Данные от Telegram не загрузились. Вы открыли приложение не через кнопку в боте?");
-        return;
-    }
-    // --------------------------------
-
     busy = true;
     send.disabled = true;
     addMessage("user", text.trim());
